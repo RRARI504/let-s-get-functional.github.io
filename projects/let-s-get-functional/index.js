@@ -20,6 +20,10 @@ var _ = require('underbar');
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
+//I: The function takes in an array 
+//O:
+//C:
+//E:
 
 var maleCount = function(array) {
 
