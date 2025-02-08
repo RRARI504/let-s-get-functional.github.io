@@ -26,10 +26,20 @@ var _ = require('underbar');
 //E:
 
 var maleCount = function(array) {
+    var males = [];
+    for(var i = 0; i < array.length; i++){
+        if(array[i].gender === 'male' ){
+            males.push(array[i]);
+
+        }
+    }
+        return males.length; 
 
 };
-
+//I: The input is a array. 
+//O: The ouptut is a number.
 var femaleCount;
+
 
 var oldestCustomer;
 
@@ -37,7 +47,15 @@ var youngestCustomer;
 
 var averageBalance;
 
-var firstLetterCount;
+var firstLetterCount = function(array, letter){
+    let firstLetter = [];
+
+    for(var i = 0; i < array.length; i++){
+            return array[i].customers
+
+    }
+
+}
 
 var friendFirstLetterCount;
 
