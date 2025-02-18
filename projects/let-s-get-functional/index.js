@@ -42,29 +42,49 @@ var maleCount = function(array) {
 //I: The input is a array. 
 //O: The ouptut is a number.
 var femaleCount = function(array){
-    return array.reduce(function(count,type){
-        if(type[i].gender === "female"){
-            return count + 1
+    return array.reduce(function(count,type){ //the reduce method iterates through an array and returns a single value
+        //takes 1st argument a call back function which is executed on each element in the array
+        //the call back takes count which is the accumulator that keeps track of the running total
+        //type is the current element of the array during iteration. 
+        if(type.gender === "female"){ //checks if the gender property of the current element is eqaul to female
+
+            return count + 1 //if it is the accumulator takes the current count and goes up by 1 each time
 
         }
-        return count;
+        return count;// returns the count
 
     
-    })
+    }, 0)//starting point for reduce and second argument
 
 
 }
 
 
-var oldestCustomer = function(array){
-    for(let i = 0; i < array.length; i++){
-        if(array[i].age ){
+//so I need to iterate through the array of people and check the age of each person and increment the age evertime some
+//that is older is passed over 
 
-        }
+var oldestCustomer = function(array){
+
+return array.reduce(function(oldest, current){
+
+    if(current.age > oldest.age){
+        return current;
 
     }
 
+    return oldest;
+
+
+
+},)
+
+
+
 }
+
+
+
+
 
 var youngestCustomer;
 
