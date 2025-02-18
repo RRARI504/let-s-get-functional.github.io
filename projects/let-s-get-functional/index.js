@@ -36,12 +36,35 @@ var maleCount = function(array) {
         return males.length; 
 
 };
+
+
+
 //I: The input is a array. 
 //O: The ouptut is a number.
-var femaleCount;
+var femaleCount = function(array){
+    return array.reduce(function(count,type){
+        if(type[i].gender === "female"){
+            return count + 1
+
+        }
+        return count;
+
+    
+    })
 
 
-var oldestCustomer;
+}
+
+
+var oldestCustomer = function(array){
+    for(let i = 0; i < array.length; i++){
+        if(array[i].age ){
+
+        }
+
+    }
+
+}
 
 var youngestCustomer;
 
