@@ -101,9 +101,10 @@ var youngestCustomer = function(array){
 var averageBalance = function(array){
 
     let totBalance = 0; //initialize the total balance at 0
+    
 
     for(let i = 0; i < array.length; i++){ //loop over the array
-        totBalance += array[i].balance; //add the current balance of the customer to the total balance 
+        totBalance += array[i].balance; //add the current balance of the customer to the total balance
     }
     let average = totBalance / array.length; //variable that takes the total balance collected and divides it by every customer in the array
     return average;
