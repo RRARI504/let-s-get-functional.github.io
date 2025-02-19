@@ -60,35 +60,58 @@ var femaleCount = function(array){
 }
 
 
-//so I need to iterate through the array of people and check the age of each person and increment the age evertime some
-//that is older is passed over 
+//so I need to iterate through the array of people and check the age of each person and increment the age everytime someone
+//that is older is passed over. should return the name of the person who is the oldest. 
 
-var oldestCustomer = function(array){
+var oldestCustomer = function(customers){
 
-return array.reduce(function(oldest, current){
+var oldestPers = customers[0]; //initializing the oldest person count at the first index of the array 
 
-    if(current.age > oldest.age){
-        return current;
+for(var i = 1; i < customers.length; i++){//looping over the array 
+    if(customers[i].age > oldestPers.age){//comparing the age of the oldest to the current iteration
+
+        oldestPers = customers[i];//updating the oldest if the current one is older
+    }
+}
+return oldestPers.name;//return the oldest persons name
+
+};
+
+
+var youngestCustomer = function(array){
+    let youngestPers = array[0]
+    for(let i = 1; i < array.length; i++){
+        if(array[i].age < youngestPers.age){
+
+            youngestPers = array[i]
+
+        }
 
     }
-
-    return oldest;
-
+    return youngestPers.name
 
 
-},)
+};
+
+//here i need to iterate over the keys in the object
+//for each key access the 'balance' of each customer 
+//compute the average of every customers balance 
+//the output should be a number 
+
+var averageBalance = function(array){
+
+    let totBalance = 0; //initialize the total balance at 0
+
+    for(let i = 0; i < array.length; i++){ //loop over the array
+        totBalance += array[i].balance; //add the current balance of the customer to the total balance 
+    }
+    let average = totBalance / array.length; //variable that takes the total balance collected and divides it by every customer in the array
+    return average;
+
+};
 
 
 
-}
-
-
-
-
-
-var youngestCustomer;
-
-var averageBalance;
 
 var firstLetterCount = function(array, letter){
     let firstLetter = [];
