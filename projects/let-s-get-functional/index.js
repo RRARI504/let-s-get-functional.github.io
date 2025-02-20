@@ -122,17 +122,18 @@ var averageBalance = function(array){
 
 
 var firstLetterCount = function(array, letter){
+    let count = 0;
 
-    letter = letter.toLowerCase(); //this line accounts for case sensitivity. Takes the letters parameter and sets it equal to lowercase
+    for(let i = 0; i < array.length; i++){
+        if(array[i].name.charAt(0) === letter) {
+            count++
 
-    var filtered = array.filter(function(customers){
-        return customers.name.charAt(0) === letters
+        }
 
-        
-    })
+    }
+    return count;
 
-    return filtered.length; 
-
+    
 }
 
 
