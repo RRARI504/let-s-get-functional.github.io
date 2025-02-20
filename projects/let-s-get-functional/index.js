@@ -2,6 +2,7 @@
 
 'use strict';
 
+const { filter } = require('lodash');
 var customers = require('./data/customers.json');
 var _ = require('underbar');
 
@@ -100,37 +101,114 @@ var youngestCustomer = function(array){
 
 var averageBalance = function(array){
 
-    let totBalance = 0; //initialize the total balance at 0
-    
+    let totBalance = array.reduce(function(acc, current){
+        
+    let tot = current.balance
+    let balance = tot.replace(/[$,]/g, "");
+    acc += Number(balance)
+    return acc;
 
-    for(let i = 0; i < array.length; i++){ //loop over the array
-        totBalance += array[i].balance; //add the current balance of the customer to the total balance
-    }
-    let average = totBalance / array.length; //variable that takes the total balance collected and divides it by every customer in the array
-    return average;
+    }, 0);
+
+    return totBalance / array.length ;
+    
 
 };
 
 
 
 
+
+
+
 var firstLetterCount = function(array, letter){
-    let firstLetter = [];
 
-    for(var i = 0; i < array.length; i++){
-            return array[i].customers
+    letter = letter.toLowerCase(); //this line accounts for case sensitivity. Takes the letters parameter and sets it equal to lowercase
 
-    }
+    var filtered = array.filter(function(customers){
+        return customers.name.charAt(0) === letters
+
+        
+    })
+
+    return filtered.length; 
 
 }
 
-var friendFirstLetterCount;
 
-var friendsCount;
 
-var topThreeTags;
+var friendFirstLetterCount = function(array, customer, letter){
 
-var genderCount;
+    let filtered = array.filter(function(){
+
+    })
+    
+
+
+};
+
+
+
+var friendsCount = function(array, name){
+    
+    const filtered = array.filter(function(c){ 
+        return c.friends.filter(function(friend){
+            return friend.name === name;
+        }).length
+
+    });
+
+    return filtered.map(function(customer){
+        return customer.name
+    });
+
+
+
+}
+
+
+
+
+var topThreeTags = function(array){
+
+    return array. reduce(function(acc, current){
+        if(acc.hasOwnProperty(current.tag)){
+            acc[current.tag] += 1
+
+        }else{
+
+        }
+
+    }, )
+
+}
+
+
+
+
+
+
+
+
+var genderCount = function(array){
+
+    let genders = array.reduce(function(acc, current){
+        //acc = {} //current = {Adele Mullin} =>
+
+        //every teration we are accessing the current customer and determing if current customers gender already exist as a key in acc
+        if(acc.hasOwnProperty(current.gender)){
+            acc[current.gender] += 1
+
+        } else{ //it doesnt exist and we need to ceate it and give it a value of 1
+            acc[current.gender] = 1
+
+        }
+        return acc;
+
+
+    }, {})//pass in empty object because they want 
+
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
