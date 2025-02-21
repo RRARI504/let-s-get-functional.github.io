@@ -122,31 +122,59 @@ var averageBalance = function(array){
 
 
 var firstLetterCount = function(array, letter){
-    let count = 0;
+    let count = 0; //initiating count at zero 
+    letter = letter.toUpperCase();
 
-    for(let i = 0; i < array.length; i++){
+    for(let i = 0; i < array.length; i++){//iterating throgh the array 
         if(array[i].name.charAt(0) === letter) {
+            // if the current item in the array that is being iterated through at the first character of the name 
+            //is equal to the letter
             count++
-
+            //increment the count  
         }
 
     }
     return count;
-
+    //return the count to get a number 
     
 }
 
 
 
+
+
+
+//so here we are trying to see how many friends of a given customers name has names that start with a given letter 
 var friendFirstLetterCount = function(array, customer, letter){
+    let count = 0 //initiate count at 0
+    letter = letter.toUpperCase(); //handles case sensitivity 
 
-    let filtered = array.filter(function(){
+    for(let i =  0; i < array.length; i++){ //iterates through the array 
+        if(array[i].name === customer){//if the current item being iterated through name = customer 
+            
+        
+    for(let j = 0; j < array[i].friends.length; j++){
+        if(array[i].friends[j].name[0] === letter){
+            count++
+        }
+    }
 
-    })
-    
+        }
+
+
+    }
+
+    return count;
+
+
 
 
 };
+
+
+
+
+
 
 
 
@@ -180,7 +208,7 @@ var topThreeTags = function(array){
 
         }
 
-    }, )
+    }, [])
 
 }
 
