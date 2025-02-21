@@ -200,15 +200,16 @@ var friendsCount = function(array, name){
 
 var topThreeTags = function(array){
 
-    return array. reduce(function(acc, current){
-        if(acc.hasOwnProperty(current.tag)){
-            acc[current.tag] += 1
+    return array.reduce(function(acc, current){
+        if(acc.hasOwnProperty(current.tag)){// checks if accumulator contains the tag property 
+            acc[current.tag] += 1//if the accumulator does contain the tag increment the count 
 
         }else{
+            acc[current.tag] = 1
+            }
+            return acc;
 
-        }
-
-    }, [])
+    },[])
 
 }
 
@@ -232,7 +233,7 @@ var genderCount = function(array){
             acc[current.gender] = 1
 
         }
-        return acc;
+        return genders;
 
 
     }, {})//pass in empty object because they want 
