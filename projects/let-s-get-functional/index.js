@@ -34,7 +34,7 @@ var maleCount = function(array) {
 
         }
     }
-        return males.length; 
+        return males.length
 
 };
 
