@@ -200,23 +200,33 @@ var friendsCount = function(array, name){
 
 var topThreeTags = function(array){
 
-    return array.reduce(function(acc, current){
-        if(acc.hasOwnProperty(current.tag)){// checks if accumulator contains the tag property 
-            acc[current.tag] += 1//if the accumulator does contain the tag increment the count 
+    let tagCount = array.reduce(function(acc, current){ //set variable equal reduce to accumulate the amount of tags in the array
 
-        }else{
-            acc[current.tag] = 1
+        current.tags.forEach(function(tag){ //loop through each current customer tag in the array using forEach to process each one indiisually 
+            if(acc.hasOwnProperty(tag)){// if the accumulator has the tag property increment the count by 1
+                acc[tag] += 1
+
+            }else{
+                acc[tag] = 1 //if the tag doesnt exist keep its count current 
             }
-            return acc;
+        });
 
-    },[])
-
-}
-
+        return acc;//return the accumulator 
+    }, {}) //the accumulator should be an object 
 
 
+    let frequency = Object.entries(tagCount).sort(function(a, b){ //set variable equal to Object.entries which will convert the tag count to an array accessing both key and value in the object 
+        //use .sort to sort the count of the key value pairs from Object.entries by desending order
+        return b[1] - a[1];
 
 
+    }).slice(0, 3)//get the top three items using .slice starting at the zero index and takes 3 elements which are the most frequent tags 
+
+    return frequency.map(function(item){//use .map to extract the first element from frequency 
+        return item[0];
+    })
+
+};
 
 
 
@@ -225,7 +235,7 @@ var genderCount = function(array){
     let genders = array.reduce(function(acc, current){
         //acc = {} //current = {Adele Mullin} =>
 
-        //every teration we are accessing the current customer and determing if current customers gender already exist as a key in acc
+        //every iteration we are accessing the current customer and determing if current customers gender already exist as a key in acc
         if(acc.hasOwnProperty(current.gender)){
             acc[current.gender] += 1
 
@@ -233,10 +243,12 @@ var genderCount = function(array){
             acc[current.gender] = 1
 
         }
-        return genders;
+        return acc;
 
 
     }, {})//pass in empty object because they want 
+
+        return genders;
 
 }
 
